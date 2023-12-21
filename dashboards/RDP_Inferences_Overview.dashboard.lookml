@@ -542,7 +542,7 @@
   - name: Time Range
     title: Time Range
     type: field_filter
-    default_value: 15 minute
+    default_value: 4 hour
     allow_multiple_values: true
     required: false
     ui_config:
