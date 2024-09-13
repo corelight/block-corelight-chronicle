@@ -53,6 +53,7 @@
       Corelight Sensor: directions.observer_host_name_filter_directions
       Direction: directions.directions_filter
       Event Type: directions.product_event_type
+      Namespace: directions.namespace_derived
     row: 7
     col: 0
     width: 24
@@ -94,6 +95,7 @@
       Corelight Sensor: directions.observer_host_name_filter_directions
       Direction: directions.directions_filter
       Event Type: directions.product_event_type
+      Namespace: directions.namespace_derived
     row: 14
     col: 0
     width: 24
@@ -146,6 +148,7 @@
       Corelight Sensor: directions.observer_host_name_filter_directions
       Direction: directions.directions_filter
       Event Type: directions.product_event_type
+      Namespace: directions.namespace_derived
     row: 0
     col: 0
     width: 24
@@ -206,3 +209,17 @@
     explore: directions
     listens_to_filters: [Event Type]
     field: directions.directions_filter
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

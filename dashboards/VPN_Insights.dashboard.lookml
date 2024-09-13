@@ -37,6 +37,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
+      Namespace: events.observer__namespace
     row: 0
     col: 0
     width: 12
@@ -105,6 +106,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
+      Namespace: events.observer__namespace
     row: 0
     col: 12
     width: 12
@@ -155,6 +157,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
+      Namespace: events.observer__namespace
     row: 6
     col: 0
     width: 12
@@ -209,6 +212,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
+      Namespace: events.observer__namespace
     row: 12
     col: 0
     width: 24
@@ -262,6 +266,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
+      Namespace: events.observer__namespace
     row: 22
     col: 0
     width: 24
@@ -320,6 +325,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
+      Namespace: events.observer__namespace
     row: 17
     col: 0
     width: 24
@@ -393,6 +399,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
+      Namespace: events.observer__namespace
     row: 6
     col: 12
     width: 12
@@ -453,3 +460,17 @@
     explore: events
     listens_to_filters: [Event Type]
     field: events__about__labels__vpn__type.value
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

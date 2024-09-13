@@ -68,6 +68,7 @@
       Event Type: events.metadata__product_event_type
       SSH Inferences: events__security_result.summary_for_filter
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 0
     col: 12
     width: 12
@@ -117,6 +118,7 @@
       Event Type: events.metadata__product_event_type
       SSH Inferences: events__security_result.summary_for_filter
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 0
     col: 0
     width: 12
@@ -164,6 +166,7 @@
       Event Type: events.metadata__product_event_type
       SSH Inferences: security_result_summary_derived.summary_derived
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 6
     col: 12
     width: 12
@@ -213,6 +216,7 @@
       Event Type: events.metadata__product_event_type
       SSH Inferences: events__security_result.summary_for_filter
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 6
     col: 0
     width: 12
@@ -266,6 +270,7 @@
       Event Type: events.metadata__product_event_type
       SSH Inferences: security_result_summary_derived.summary_derived
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 12
     col: 0
     width: 24
@@ -318,6 +323,7 @@
       Event Type: events.metadata__product_event_type
       SSH Inferences: events__security_result.summary_for_filter
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 18
     col: 0
     width: 24
@@ -365,3 +371,17 @@
     explore: events
     listens_to_filters: [Event Type]
     field: events__security_result.summary_for_filter
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

@@ -57,6 +57,7 @@
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname__filter
       Event Type: events.product_event_type_filter
+      Namespace: events.observer__namespace
     row: 0
     col: 12
     width: 12
@@ -113,6 +114,7 @@
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname__filter
       Event Type: events.product_event_type_filter
+      Namespace: events.observer__namespace
     row: 6
     col: 12
     width: 12
@@ -168,6 +170,7 @@
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname__filter
       Event Type: events.product_event_type_filter
+      Namespace: events.observer__namespace
     row: 0
     col: 0
     width: 12
@@ -224,6 +227,7 @@
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname__filter
       Event Type: events.product_event_type_filter
+      Namespace: events.observer__namespace
     row: 6
     col: 0
     width: 12
@@ -274,3 +278,17 @@
     explore: events
     listens_to_filters: [Metadata Product Event Type, Event Type]
     field: events.observer__hostname__filter
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

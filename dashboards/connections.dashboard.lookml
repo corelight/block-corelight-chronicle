@@ -51,13 +51,14 @@
     defaults_version: 1
     listen:
       Time Range: events.event_timestamp_time
-      Originator IP (id_orig_h): events.principal__ip__filter
-      Originator Port (id_orig_p): events.principal__port__filter
-      Responder IP (id_resp_h): events.target__ip__filter
-      Responder Port (id_resp_p): events.target__port__filter
+      Source IP: events.principal__ip__filter
+      Source Port: events.principal__port__filter
+      Destination IP: events.target__ip__filter
+      Destination Port: events.target__port__filter
       Service: events.about__labels__service__filter
       Event Type: events.metadata__product_event_type
       Corelight Sensor: events.observer__hostname__filter
+      Namespace: events.observer__namespace
     row: 0
     col: 0
     width: 12
@@ -108,13 +109,14 @@
     defaults_version: 1
     listen:
       Time Range: events.event_timestamp_time
-      Originator IP (id_orig_h): events.principal__ip__filter
-      Originator Port (id_orig_p): events.principal__port__filter
-      Responder IP (id_resp_h): events.target__ip__filter
-      Responder Port (id_resp_p): events.target__port__filter
+      Source IP: events.principal__ip__filter
+      Source Port: events.principal__port__filter
+      Destination IP: events.target__ip__filter
+      Destination Port: events.target__port__filter
       Service: events.about__labels__service__filter
       Event Type: events.metadata__product_event_type
       Corelight Sensor: events.observer__hostname__filter
+      Namespace: events.observer__namespace
     row: 0
     col: 12
     width: 12
@@ -165,13 +167,14 @@
     defaults_version: 1
     listen:
       Time Range: events.event_timestamp_time
-      Originator IP (id_orig_h): events.principal__ip__filter
-      Originator Port (id_orig_p): events.principal__port__filter
-      Responder IP (id_resp_h): events.target__ip__filter
-      Responder Port (id_resp_p): events.target__port__filter
+      Source IP: events.principal__ip__filter
+      Source Port: events.principal__port__filter
+      Destination IP: events.target__ip__filter
+      Destination Port: events.target__port__filter
       Service: events.about__labels__service__filter
       Event Type: events.metadata__product_event_type
       Corelight Sensor: events.observer__hostname__filter
+      Namespace: events.observer__namespace
     row: 6
     col: 0
     width: 12
@@ -222,13 +225,14 @@
     defaults_version: 1
     listen:
       Time Range: events.event_timestamp_time
-      Originator IP (id_orig_h): events.principal__ip__filter
-      Originator Port (id_orig_p): events.principal__port__filter
-      Responder IP (id_resp_h): events.target__ip__filter
-      Responder Port (id_resp_p): events.target__port__filter
+      Source IP: events.principal__ip__filter
+      Source Port: events.principal__port__filter
+      Destination IP: events.target__ip__filter
+      Destination Port: events.target__port__filter
       Service: events.about__labels__service__filter
       Event Type: events.metadata__product_event_type
       Corelight Sensor: events.observer__hostname__filter
+      Namespace: events.observer__namespace
     row: 6
     col: 12
     width: 12
@@ -300,13 +304,14 @@
     defaults_version: 1
     listen:
       Time Range: events.event_timestamp_time
-      Originator IP (id_orig_h): events.principal__ip__filter
-      Originator Port (id_orig_p): events.principal__port__filter
-      Responder IP (id_resp_h): events.target__ip__filter
-      Responder Port (id_resp_p): events.target__port__filter
+      Source IP: events.principal__ip__filter
+      Source Port: events.principal__port__filter
+      Destination IP: events.target__ip__filter
+      Destination Port: events.target__port__filter
       Service: events.about__labels__service__filter
       Event Type: events.metadata__product_event_type
       Corelight Sensor: events.observer__hostname__filter
+      Namespace: events.observer__namespace
     row: 12
     col: 0
     width: 12
@@ -379,13 +384,14 @@
     defaults_version: 1
     listen:
       Time Range: events.event_timestamp_time
-      Originator IP (id_orig_h): events.principal__ip__filter
-      Originator Port (id_orig_p): events.principal__port__filter
-      Responder IP (id_resp_h): events.target__ip__filter
-      Responder Port (id_resp_p): events.target__port__filter
+      Source IP: events.principal__ip__filter
+      Source Port: events.principal__port__filter
+      Destination IP: events.target__ip__filter
+      Destination Port: events.target__port__filter
       Service: events.about__labels__service__filter
       Event Type: events.metadata__product_event_type
       Corelight Sensor: events.observer__hostname__filter
+      Namespace: events.observer__namespace
     row: 12
     col: 12
     width: 12
@@ -453,13 +459,14 @@
     defaults_version: 1
     listen:
       Time Range: events.event_timestamp_time
-      Originator IP (id_orig_h): events.principal__ip__filter
-      Originator Port (id_orig_p): events.principal__port__filter
-      Responder IP (id_resp_h): events.target__ip__filter
-      Responder Port (id_resp_p): events.target__port__filter
+      Source IP: events.principal__ip__filter
+      Source Port: events.principal__port__filter
+      Destination IP: events.target__ip__filter
+      Destination Port: events.target__port__filter
       Service: events.about__labels__service__filter
       Event Type: events.metadata__product_event_type
       Corelight Sensor: events.observer__hostname__filter
+      Namespace: events.observer__namespace
     row: 20
     col: 0
     width: 24
@@ -572,3 +579,17 @@
     explore: events
     listens_to_filters: [Event Type]
     field: events.about__labels__service__filter
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

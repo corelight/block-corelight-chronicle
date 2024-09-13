@@ -65,6 +65,7 @@
       Intel Source: events__about__labels__source.value
       Time Range: events.event_timestamp_time
       Destination Port: events.target__port__intel
+      Namespace: events.observer__namespace
     row: 0
     col: 0
     width: 14
@@ -137,6 +138,7 @@
       Intel Source: events__about__labels__source.value
       Time Range: events.event_timestamp_time
       Destination Port: events.target__port__intel
+      Namespace: events.observer__namespace
     row: 6
     col: 0
     width: 24
@@ -193,6 +195,7 @@
       Intel Source: events__about__labels__source.value
       Time Range: events.event_timestamp_time
       Destination Port: events.target__port__intel
+      Namespace: events.observer__namespace
     row: 13
     col: 0
     width: 24
@@ -250,6 +253,7 @@
       Intel Source: events__about__labels__source.value
       Time Range: events.event_timestamp_time
       Destination Port: events.target__port__intel
+      Namespace: events.observer__namespace
     row: 0
     col: 14
     width: 10
@@ -362,3 +366,17 @@
     explore: events
     listens_to_filters: [Event Type]
     field: events__about__labels__source.value
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

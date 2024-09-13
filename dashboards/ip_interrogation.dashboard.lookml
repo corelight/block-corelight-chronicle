@@ -63,6 +63,7 @@
       Source IP: events__principal__ip.events__principal__ip
       Destination IP: events__target__ip.events__target__ip
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 0
     col: 0
     width: 15
@@ -142,6 +143,7 @@
       Source IP: events__principal__ip.events__principal__ip
       Destination IP: events__target__ip.events__target__ip
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 6
     col: 0
     width: 24
@@ -195,6 +197,7 @@
       Source IP: events__principal__ip.events__principal__ip
       Destination IP: events__target__ip.events__target__ip
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 17
     col: 0
     width: 8
@@ -249,6 +252,7 @@
       Source IP: events__principal__ip.events__principal__ip
       Destination IP: events__target__ip.events__target__ip
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 17
     col: 8
     width: 8
@@ -299,6 +303,7 @@
       Source IP: events__principal__ip.events__principal__ip
       Destination IP: events__target__ip.events__target__ip
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 17
     col: 16
     width: 8
@@ -378,6 +383,7 @@
       Source IP: events__principal__ip.events__principal__ip
       Destination IP: events__target__ip.events__target__ip
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 12
     col: 0
     width: 24
@@ -432,6 +438,7 @@
       Source IP: events__principal__ip.events__principal__ip
       Destination IP: events__target__ip.events__target__ip
       Time Range: events.event_time_time
+      Namespace: events.observer__namespace
     row: 0
     col: 15
     width: 9
@@ -477,3 +484,17 @@
     explore: events
     listens_to_filters: []
     field: events__target__ip.events__target__ip
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

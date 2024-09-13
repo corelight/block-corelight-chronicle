@@ -59,6 +59,7 @@
       Time Range: events.event_timestamp_time
       Source IP: events__principal__ip.events__principal__ip
       Notes: events__security_result.description_for_filter_notice
+      Namespace: events.observer__namespace
     row: 0
     col: 0
     width: 8
@@ -111,6 +112,7 @@
       Severity: events.severity_notice_for_filter
       Source IP: events__principal__ip.events__principal__ip
       Notes: events__security_result.description_for_filter_notice
+      Namespace: events.observer__namespace
     row: 0
     col: 8
     width: 8
@@ -159,6 +161,7 @@
       Severity: events.severity_notice_for_filter
       Source IP: events__principal__ip.events__principal__ip
       Notes: events__security_result.description_for_filter_notice
+      Namespace: events.observer__namespace
     row: 13
     col: 0
     width: 24
@@ -238,6 +241,7 @@
       Severity: events.severity_notice_for_filter
       Source IP: events__principal__ip.events__principal__ip
       Notes: events__security_result.description_for_filter_notice
+      Namespace: events.observer__namespace
     row: 6
     col: 0
     width: 24
@@ -292,6 +296,7 @@
       Severity: events.severity_notice_for_filter
       Source IP: events__principal__ip.events__principal__ip
       Notes: events__security_result.description_for_filter_notice
+      Namespace: events.observer__namespace
     row: 0
     col: 16
     width: 8
@@ -378,3 +383,17 @@
     explore: events
     listens_to_filters: [Event Type]
     field: events.proto_port_for_filter_notice
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

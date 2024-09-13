@@ -1,5 +1,6 @@
 include: "/views/events.view"
 explore: dns {}
+explore: avg_rtt {}
 explore: events {
   sql_always_where: ${metadata__vendor_name} = "Corelight" ;;
   #SSH_Inferences_derived
@@ -767,6 +768,13 @@ explore: events {
     sql_on: ${events__about__labels__uid.value} = ${http_group_by_uid_src_dest.conn_uids} ;;
     relationship: one_to_one
   }
+  #Secure Channel Insights
+  join: is_ip_internal_external {
+    view_label: "Events: UID with filtered on conn type event"
+    type: left_outer
+    sql_on: ${events__about__labels__uid__only.value} = ${is_ip_internal_external.conn_uids} ;;
+    relationship: one_to_one
+  }
   #data-exploration-http
   join: events__about__labels__status__msg {
     view_label: "Events: About Labels status msg"
@@ -778,6 +786,20 @@ explore: events {
     view_label: "Events: About Labels Auth Success"
     sql: LEFT JOIN UNNEST(${events__about.labels}) as events__about__labels__auth__success ON ${events__about__labels__auth__success.key} = 'auth_success' ;;
     fields: [events__about__labels__auth__success.value]
+    relationship: one_to_many
+  }
+  # Remote Activity Insights
+  join: events__about__labels__cookie {
+    view_label: "Events: About Labels Cookie"
+    sql: LEFT JOIN UNNEST(${events__about.labels}) as events__about__labels__cookie ON ${events__about__labels__cookie.key} = 'cookie' ;;
+    fields: [events__about__labels__cookie.value]
+    relationship: one_to_many
+  }
+  # Remote Activity Insights
+  join: events__about__labels__result {
+    view_label: "Events: About Labels Result"
+    sql: LEFT JOIN UNNEST(${events__about.labels}) as events__about__labels__result ON ${events__about__labels__result.key} = 'result' ;;
+    fields: [events__about__labels__result.value]
     relationship: one_to_many
   }
   join: events__about__labels__uid {
@@ -9291,6 +9313,43 @@ explore: events {
   join: events__extensions__vulns__vulnerabilities__about__process_ancestors__file__pe_file__resources_language_count_str {
     view_label: "Events: Extensions Vulns Vulnerabilities About Process Ancestors File Pe File Resources Language Count Str"
     sql: LEFT JOIN UNNEST(${events__extensions__vulns__vulnerabilities__about__process_ancestors.file__pe_file__resources_language_count_str}) as events__extensions__vulns__vulnerabilities__about__process_ancestors__file__pe_file__resources_language_count_str ;;
+    relationship: one_to_many
+  }
+  join: events__security_result__detection_fields_validation_status {
+    view_label: "Events: Security Result Detection Fields Validation Status"
+    sql: LEFT JOIN UNNEST(${events__security_result.detection_fields}) as events__security_result__detection_fields_validation_status ON ${events__security_result__detection_fields_validation_status.key} = 'validation_status';;
+    fields: [events__security_result__detection_fields_validation_status.value]
+    relationship: one_to_many
+  }
+  join: events__about__labels_certificate_key_length {
+    view_label: "Events: About Labels Certificate Key Length"
+    sql: LEFT JOIN UNNEST(${events__about.labels}) as events__about__labels_certificate_key_length ON ${events__about__labels_certificate_key_length.key} = 'certificate_key_length';;
+    fields: [events__about__labels_certificate_key_length.value_in_integer]
+    relationship: one_to_many
+  }
+  join: events__about__labels_fingerprint {
+    view_label: "Events: About Labels Fingerprint"
+    sql: LEFT JOIN UNNEST(${events__about.labels}) as events__about__labels_fingerprint ON ${events__about__labels_fingerprint.key} = 'fingerprint';;
+    fields: [events__about__labels_fingerprint.value]
+    relationship: one_to_many
+  }
+  join: events__about__labels_viz_stats {
+    view_label: "Events: About Labels Viz Stat"
+    sql: LEFT JOIN UNNEST(${events__about.labels}) as events__about__labels_viz_stats ON ${events__about__labels_viz_stats.key} = 'viz_stat';;
+    fields: [events__about__labels_viz_stats.value]
+    relationship: one_to_many
+  }
+
+  join: events__target__labels_cert_chain_fps {
+    view_label: "Events: Target Labels Cert Chain FPS"
+    sql: LEFT JOIN UNNEST(${events.target__labels}) as events__target__labels_cert_chain_fps ON ${events__target__labels_cert_chain_fps.key} = 'cert_chain_fps';;
+    fields: [events__target__labels_cert_chain_fps.value]
+    relationship: one_to_many
+  }
+  #Secure Channel Insights
+  join: x509_events_only {
+    type: inner
+    sql_on: ${x509_events_only.fingerprint} = ${events__target__labels_cert_chain_fps.value};;
     relationship: one_to_many
   }
 }

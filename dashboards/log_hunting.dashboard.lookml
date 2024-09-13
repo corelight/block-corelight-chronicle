@@ -68,6 +68,7 @@
       Event Type: events.metadata__product_event_type
       Source IP: events__principal__ip.events__principal__ip
       Destination IP: events__target__ip.events__target__ip
+      Namespace: events.observer__namespace
     row: 0
     col: 0
     width: 12
@@ -153,6 +154,7 @@
       Event Type: events.metadata__product_event_type
       Source IP: events__principal__ip.events__principal__ip
       Destination IP: events__target__ip.events__target__ip
+      Namespace: events.observer__namespace
     row: 0
     col: 12
     width: 12
@@ -234,6 +236,7 @@
       Event Type: events.metadata__product_event_type
       Source IP: events__principal__ip.events__principal__ip
       Destination IP: events__target__ip.events__target__ip
+      Namespace: events.observer__namespace
     row: 6
     col: 0
     width: 24
@@ -305,3 +308,17 @@
     explore: events
     listens_to_filters: []
     field: events__about__labels__uid.value
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

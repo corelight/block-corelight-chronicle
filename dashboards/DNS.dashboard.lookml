@@ -55,6 +55,7 @@
       Responder Port (id_resp_p): events.target__port__intel
       Record Type: events__about__labels__qtype_name.value_for_filter
       Time Range: events.event_timestamp_time
+      Namespace: events.observer__namespace
     row: 0
     col: 0
     width: 8
@@ -131,6 +132,7 @@
       Responder Port (id_resp_p): events.target__port__intel
       Record Type: events__about__labels__qtype_name.value_for_filter
       Time Range: events.event_timestamp_time
+      Namespace: events.observer__namespace
     row: 6
     col: 0
     width: 8
@@ -209,6 +211,7 @@
       Responder Port (id_resp_p): events.target__port__intel
       Record Type: events__about__labels__qtype_name.value_for_filter
       Time Range: events.event_timestamp_time
+      Namespace: events.observer__namespace
     row: 6
     col: 8
     width: 8
@@ -285,6 +288,7 @@
       Responder Port (id_resp_p): events.target__port__intel
       Record Type: events__about__labels__qtype_name.value_for_filter
       Time Range: events.event_timestamp_time
+      Namespace: events.observer__namespace
     row: 6
     col: 16
     width: 8
@@ -295,7 +299,6 @@
     explore: dns
     type: looker_grid
     fields: [dns.query_derived, dns.queries_count_derived]
-    filters: {}
     sorts: [dns.queries_count_derived desc 0]
     limit: 10
     column_limit: 50
@@ -356,6 +359,7 @@
       Responder Port (id_resp_p): dns.port_derived
       Record Type: dns.qtype_derived
       Time Range: dns.time_derived
+      Namespace: dns.namespace_derived
     row: 0
     col: 8
     width: 8
@@ -428,6 +432,7 @@
       Responder Port (id_resp_p): dns.port_derived
       Record Type: dns.qtype_derived
       Time Range: dns.time_derived
+      Namespace: dns.namespace_derived
     row: 0
     col: 16
     width: 8
@@ -483,7 +488,7 @@
     required: false
     ui_config:
       type: tag_list
-      display: inline
+      display: popover
     model: corelight-chronicle
     explore: events
     listens_to_filters: [Event Type]
@@ -501,3 +506,17 @@
     explore: events
     listens_to_filters: [Event Type]
     field: events__about__labels__qtype_name.value_for_filter
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

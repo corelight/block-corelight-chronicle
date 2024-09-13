@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: pZzeyNoLU69OIoPJQmCPOr
+  preferred_slug: JtfvWFvDqwi1K1RkhEVJjy
   elements:
   - title: Top 20 Mime Types by File Count
     name: Top 20 Mime Types by File Count
@@ -71,6 +71,7 @@
       Event Type: events.product_event_type
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
     row: 2
     col: 0
     width: 14
@@ -146,6 +147,7 @@
       Event Type: events.product_event_type
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
     row: 2
     col: 14
     width: 10
@@ -180,6 +182,7 @@
       Event Type: events.product_event_type
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
     row: 9
     col: 8
     width: 8
@@ -230,6 +233,7 @@
       Event Type: events.product_event_type
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
     row: 23
     col: 0
     width: 13
@@ -279,6 +283,7 @@
       Event Type: events.product_event_type
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
     row: 17
     col: 0
     width: 13
@@ -329,6 +334,7 @@
       Event Type: events.product_event_type
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
     row: 23
     col: 13
     width: 11
@@ -379,6 +385,7 @@
       Event Type: events.product_event_type
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
     row: 17
     col: 13
     width: 11
@@ -444,6 +451,7 @@
       Event Type: directions.product_event_type
       Time Range: directions.event_timestamp_directions_time
       Corelight Sensor: directions.observer_host_name_filter_directions
+      Namespace: directions.namespace_derived
     row: 9
     col: 0
     width: 8
@@ -530,6 +538,7 @@
       Event Type: directions.product_event_type
       Time Range: directions.event_timestamp_directions_time
       Corelight Sensor: directions.observer_host_name_filter_directions
+      Namespace: directions.namespace_derived
     row: 9
     col: 16
     width: 8
@@ -537,7 +546,6 @@
   - name: " (Copy)"
     type: text
     title_text: " (Copy)"
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"Hosts"}],"align":"center","id":1697698291372}]'
     rich_content_json: '{"format":"slate"}'
     row: 15
@@ -547,7 +555,6 @@
   - name: ''
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"Top values"}],"align":"center","id":1697698250405}]'
     rich_content_json: '{"format":"slate"}'
     row: 0
@@ -563,7 +570,7 @@
     required: true
     ui_config:
       type: dropdown_menu
-      display: popover
+      display: inline
       options:
       - files
     model: corelight-chronicle
@@ -592,7 +599,7 @@
     required: false
     ui_config:
       type: dropdown_menu
-      display: popover
+      display: inline
     model: corelight-chronicle
     explore: events
     listens_to_filters: [Event Type]
@@ -605,8 +612,22 @@
     required: false
     ui_config:
       type: dropdown_menu
-      display: popover
+      display: inline
     model: corelight-chronicle
     explore: events
     listens_to_filters: [Event Type]
     field: events__about.file__mime_type_filter
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

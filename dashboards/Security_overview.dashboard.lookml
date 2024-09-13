@@ -74,6 +74,7 @@
       Time Range: events.event_time_time
       Corelight Sensor: events.observer__hostname
       Event Type: events.metadata__product_event_type
+      Namespace: events.observer__namespace
     row: 0
     col: 0
     width: 24
@@ -123,3 +124,17 @@
     explore: events
     listens_to_filters: [Event Type]
     field: events.observer__hostname
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

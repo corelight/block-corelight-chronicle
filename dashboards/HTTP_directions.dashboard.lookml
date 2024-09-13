@@ -31,6 +31,7 @@
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type
+      Namespace: events.observer__namespace
     row: 0
     col: 13
     width: 11
@@ -87,6 +88,7 @@
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type
+      Namespace: events.observer__namespace
     row: 2
     col: 0
     width: 13
@@ -150,6 +152,7 @@
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type
+      Namespace: events.observer__namespace
     row: 0
     col: 0
     width: 13
@@ -224,6 +227,7 @@
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type
+      Namespace: events.observer__namespace
     row: 8
     col: 0
     width: 13
@@ -298,6 +302,7 @@
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type
+      Namespace: events.observer__namespace
     row: 2
     col: 13
     width: 11
@@ -372,6 +377,7 @@
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type
+      Namespace: events.observer__namespace
     row: 8
     col: 13
     width: 11
@@ -419,3 +425,17 @@
     explore: events
     listens_to_filters: [Event Type]
     field: events.observer__hostname
+  - name: Namespace
+    title: Namespace
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+      options: []
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.observer__namespace

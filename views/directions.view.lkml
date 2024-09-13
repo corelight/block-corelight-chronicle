@@ -9,6 +9,7 @@ view: directions {
         events.network.tls.client.server_name  AS events_network__tls__client__server_name,
         events.network.tls.cipher  AS events_network__tls__cipher,
         events.observer.hostname AS events_observer__hostname,
+        events.observer.namespace AS events_observer__namespace,
         events__about.file.mime_type AS events_about_mime_type,
         events__about.file.size AS events_file__size,
         events.metadata.vendor_name AS vendor_name,
@@ -21,7 +22,7 @@ view: directions {
       LEFT JOIN UNNEST(events__about.file.names) as events__about__file__names
       LEFT JOIN UNNEST(events.security_result) as events__security_result
       LEFT JOIN UNNEST(detection_fields) as events__security_result__detection_fields
-      WHERE (events.metadata.product_event_type ) IN('ssl','files') AND (events.metadata.vendor_name = "Corelight" )
+      WHERE {% condition namespace_derived %} events.observer.namespace {% endcondition %} AND (events.metadata.product_event_type ) IN('ssl','files') AND (events.metadata.vendor_name = "Corelight" )
       GROUP BY
         1,
         2,
@@ -35,7 +36,8 @@ view: directions {
         10,
         11,
         12,
-        13
+        13,
+        14
       ORDER BY
         1 ;;
   }
@@ -100,6 +102,10 @@ view: directions {
     type: string
     sql: ${TABLE}.events_observer__hostname ;;
   }
+  dimension: namespace_derived {
+    type:  string
+    sql: ${TABLE}.events_observer__namespace ;;
+  }
 
   dimension: directions_directions {
     type: string
@@ -124,7 +130,7 @@ view: directions {
     type: count
     link: {
       label: "View in Chronicle"
-      url: "@{CHRONICLE_URL}/search?query=metadata.vendor_name=\"Corelight\"AND metadata.product_event_type=\"ssl\"AND network.tls.client.server_name=\"{{ directions.network_tls_client_server_directions }}\"{% if _filters['directions.observer_host_name_filter_directions'] %} AND observer.hostname=\"{{ _filters['directions.observer_host_name_filter_directions'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}&startTime={{ directions.lower_date }}&endTime={{ directions.upper_date }}"
+      url: "@{CHRONICLE_URL}/search?query=metadata.vendor_name=\"Corelight\"AND metadata.product_event_type=\"ssl\"AND network.tls.client.server_name=\"{{ directions.network_tls_client_server_directions }}\"{% if _filters['directions.observer_host_name_filter_directions'] %} AND observer.hostname=\"{{ _filters['directions.observer_host_name_filter_directions'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}{% if _filters['namespace_derived'] %} AND observer.namespace=\"{{ _filters['namespace_derived'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}&startTime={{ directions.lower_date }}&endTime={{ directions.upper_date }}"
     }
   }
   measure: cid_count_percent {
@@ -139,17 +145,17 @@ view: directions {
     group_label: "Cipher count"
     label: "Events"
     html: <p>Count: {{value}}
-          </p> ;;
+      </p> ;;
     link: {
       label: "View in Chronicle"
-      url: "@{CHRONICLE_URL}/search?query=metadata.vendor_name=\"Corelight\"AND metadata.product_event_type=\"ssl\"AND network.tls.cipher=\"{{ directions.network_tls_cipher_directions }}\"{% if _filters['directions.observer_host_name_filter_directions'] %} AND observer.hostname=\"{{ _filters['directions.observer_host_name_filter_directions'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}&startTime={{ directions.lower_date }}&endTime={{ directions.upper_date }}"
+      url: "@{CHRONICLE_URL}/search?query=metadata.vendor_name=\"Corelight\"AND metadata.product_event_type=\"ssl\"AND network.tls.cipher=\"{{ directions.network_tls_cipher_directions }}\"{% if _filters['directions.observer_host_name_filter_directions'] %} AND observer.hostname=\"{{ _filters['directions.observer_host_name_filter_directions'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}{% if _filters['namespace_derived'] %} AND observer.namespace=\"{{ _filters['namespace_derived'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}&startTime={{ directions.lower_date }}&endTime={{ directions.upper_date }}"
     }
   }
   measure: vali_status_count {
     type: count
     link: {
       label: "View in Chronicle"
-      url: "@{CHRONICLE_URL}/search?query=metadata.vendor_name=\"Corelight\"AND metadata.product_event_type=\"ssl\"AND security_result.detection_fields[\"validation_status\"]=\"{{ directions.security_result_detection_fields_value_directions }}\"{% if _filters['directions.observer_host_name_filter_directions'] %} AND observer.hostname=\"{{ _filters['directions.observer_host_name_filter_directions'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}&startTime={{ directions.lower_date }}&endTime={{ directions.upper_date }}"
+      url: "@{CHRONICLE_URL}/search?query=metadata.vendor_name=\"Corelight\"AND metadata.product_event_type=\"ssl\"AND security_result.detection_fields[\"validation_status\"]=\"{{ directions.security_result_detection_fields_value_directions }}\"{% if _filters['directions.observer_host_name_filter_directions'] %} AND observer.hostname=\"{{ _filters['directions.observer_host_name_filter_directions'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}{% if _filters['namespace_derived'] %} AND observer.namespace=\"{{ _filters['namespace_derived'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}&startTime={{ directions.lower_date }}&endTime={{ directions.upper_date }}"
     }
   }
   measure: vali_status_count_percent {
@@ -185,7 +191,7 @@ view: directions {
     sql: SUM(${TABLE}.events_file__size);;
     link: {
       label: "View in Chronicle"
-      url: "@{CHRONICLE_URL}/search?query=metadata.vendor_name=\"{{vendor_name}}\"AND metadata.product_event_type=\"{{ product_event_type }}\"AND observer.hostname!=\"\"AND about.file.mime_type!=\"\"{% if _filters['observer_host_name_filter_directions'] %} AND observer.hostname=\"{{ _filters['observer_host_name_filter_directions'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}{% if _filters['file__mime_type'] %} AND about.file.mime_type=\"{{ _filters['file__mime_type'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}&startTime={{ lower_date }}&endTime={{ upper_date }}"
+      url: "@{CHRONICLE_URL}/search?query=metadata.vendor_name=\"{{vendor_name}}\"AND metadata.product_event_type=\"{{ product_event_type }}\"AND observer.hostname!=\"\"AND about.file.mime_type!=\"\"{% if _filters['observer_host_name_filter_directions'] %} AND observer.hostname=\"{{ _filters['observer_host_name_filter_directions'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}{% if _filters['file__mime_type'] %} AND about.file.mime_type=\"{{ _filters['file__mime_type'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}{% if _filters['namespace_derived'] %} AND observer.namespace=\"{{ _filters['namespace_derived'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}&startTime={{ lower_date }}&endTime={{ upper_date }}"
     }
   }
   dimension: file__mime_type {
@@ -206,7 +212,7 @@ view: directions {
     label: "Count"
     link: {
       label: "View in Chronicle"
-      url: "@{CHRONICLE_URL}/search?query=metadata.vendor_name=\"{{vendor_name}}\"AND metadata.product_event_type=\"{{ product_event_type }}\"AND observer.hostname!=\"\"AND about.file.mime_type!=\"\"{% if _filters['observer_host_name_filter_directions'] %} AND observer.hostname=\"{{ _filters['observer_host_name_filter_directions'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}{% if _filters['file__mime_type'] %} AND about.file.mime_type=\"{{ _filters['file__mime_type'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}&startTime={{ lower_date }}&endTime={{ upper_date }}"
+      url: "@{CHRONICLE_URL}/search?query=metadata.vendor_name=\"{{vendor_name}}\"AND metadata.product_event_type=\"{{ product_event_type }}\"AND observer.hostname!=\"\"AND about.file.mime_type!=\"\"{% if _filters['observer_host_name_filter_directions'] %} AND observer.hostname=\"{{ _filters['observer_host_name_filter_directions'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}{% if _filters['file__mime_type'] %} AND about.file.mime_type=\"{{ _filters['file__mime_type'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}{% if _filters['namespace_derived'] %} AND observer.namespace=\"{{ _filters['namespace_derived'] | replace:'\"','' | url_encode }}\"{% else %}{% endif %}&startTime={{ lower_date }}&endTime={{ upper_date }}"
     }
   }
 }
