@@ -76,6 +76,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type_filter
       Namespace: events.observer__namespace
+      User Agent: events.network__http__user_agent
     row: 6
     col: 0
     width: 8
@@ -127,6 +128,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type_filter
       Namespace: events.observer__namespace
+      User Agent: events.network__http__user_agent
     row: 6
     col: 8
     width: 8
@@ -214,6 +216,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type_filter
       Namespace: events.observer__namespace
+      User Agent: events.network__http__user_agent
     row: 12
     col: 0
     width: 14
@@ -290,6 +293,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type_filter
       Namespace: events.observer__namespace
+      User Agent: events.network__http__user_agent
     row: 12
     col: 14
     width: 10
@@ -370,6 +374,7 @@
       HTTP Status  (For Host Breakdown By HTTP Status): events.network__http__response_code__filter
       Event Type: events.product_event_type_filter
       Namespace: events.observer__namespace
+      User Agent: events.network__http__user_agent
     row: 20
     col: 13
     width: 11
@@ -446,6 +451,7 @@
       HTTP Method (For Host Breakdown By HTTP Method): events.network__http__method
       Event Type: events.product_event_type_filter
       Namespace: events.observer__namespace
+      User Agent: events.network__http__user_agent
     row: 20
     col: 0
     width: 13
@@ -476,6 +482,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type_filter
       Namespace: events.observer__namespace
+      User Agent: events.network__http__user_agent
     row: 2
     col: 0
     width: 8
@@ -506,6 +513,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type_filter
       Namespace: events.observer__namespace
+      User Agent: events.network__http__user_agent
     row: 2
     col: 16
     width: 8
@@ -536,6 +544,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type_filter
       Namespace: events.observer__namespace
+      User Agent: events.network__http__user_agent
     row: 2
     col: 8
     width: 8
@@ -566,6 +575,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type_filter
       Namespace: events.observer__namespace
+      User Agent: events.network__http__user_agent
     row: 4
     col: 0
     width: 8
@@ -597,6 +607,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type_filter
       Namespace: events.observer__namespace
+      User Agent: events.network__http__user_agent
     row: 4
     col: 8
     width: 8
@@ -628,6 +639,7 @@
       Corelight Sensor: events.observer__hostname
       Event Type: events.product_event_type_filter
       Namespace: events.observer__namespace
+      User Agent: events.network__http__user_agent
     row: 4
     col: 16
     width: 8
@@ -696,6 +708,19 @@
     explore: events
     listens_to_filters: [Event Type]
     field: events.observer__hostname
+  - name: User Agent
+    title: User Agent
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.network__http__user_agent
   - name: HTTP Method (For Host Breakdown By HTTP Method)
     title: HTTP Method (For Host Breakdown By HTTP Method)
     type: field_filter
