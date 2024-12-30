@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: EoX5ZWvDqNl0DzyAHfj5vR
+  preferred_slug: mDJuiLTDyb3VKxBYimvPJN
   elements:
   - title: Self Signed Certs
     name: Self Signed Certs
@@ -497,7 +497,7 @@
     fill_fields: [events.event_timestamp_hour]
     filters:
       events.metadata__product_event_type: conn
-      events__about__labels__service.value: -ssl,-dns,-tls,-"ssl,http",-"http,ssl"
+      events__about__labels__service.value: -ssl,-tls,-"ssl,http",-"http,ssl",-ssh,-https,-dtls,-"ssl,xmpp",-"spicy_ipsec_ike_udp",-"spicy_ipsec_udp",-"spicy_ipsec_ike_udp,spicy_ipsec_udp",-"spicy_stun_tcp",-"krb,krb_tcp"
     sorts: [events__about__labels__service.value, events.event_timestamp_hour desc]
     limit: 5000
     column_limit: 50
@@ -970,26 +970,31 @@
     model: corelight-chronicle
     explore: events
     type: looker_bar
-    fields: [events.metadata_id_count, events__target__ip_geo_artifact.location__country_or_region]
+    fields: [events__target__ip_geo_artifact.location__country_or_region, count_of_events_target_ip]
     filters:
       events.metadata__product_event_type: vpn
       events__target__ip_geo_artifact.location__country_or_region: "-NULL"
-    sorts: [events.metadata_id_count desc]
+    sorts: [count_of_events_target_ip desc 0]
     limit: 10
     column_limit: 50
     dynamic_fields:
-    - _kind_hint: measure
-      _type_hint: number
-      args:
-      - events.metadata_id_count
-      based_on: events.metadata_id_count
-      calculation_type: percent_of_column_sum
-      category: table_calculation
-      label: Percent of Events Metadata ID Count
-      source_field: events.metadata_id_count
-      table_calculation: percent_of_events_metadata_id_count
+    - category: table_calculation
+      label: Percent of Events Target IP Count
       value_format:
       value_format_name: percent_0
+      calculation_type: percent_of_column_sum
+      table_calculation: percent_of_events_target_ip_count
+      args:
+      - count_of_events_target_ip
+      _kind_hint: measure
+      _type_hint: number
+    - _kind_hint: measure
+      _type_hint: number
+      based_on: events__target__ip.events__target__ip
+      expression: ''
+      label: Count of Events Target IP
+      measure: count_of_events_target_ip
+      type: count_distinct
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1017,23 +1022,27 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    y_axes: [{label: Count, orientation: bottom, series: [{axisId: events.metadata_id_count,
-            id: events.metadata_id_count, name: Count}, {axisId: percent_of_events_metadata_id_count,
-            id: percent_of_events_metadata_id_count, name: Percent}], showLabels: true,
-        showValues: true, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+    y_axes: [{label: Count, orientation: bottom, series: [{axisId: count_of_events_target_ip,
+            id: count_of_events_target_ip, name: Count}, {axisId: percent_of_events_target_ip_count,
+            id: percent_of_events_target_ip_count, name: Percent}], showLabels: true,
+        showValues: false, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
     x_axis_label: Country
     x_axis_zoom: true
     y_axis_zoom: true
-    hide_legend: false
+    hide_legend: true
     series_colors:
       percent_of_events_metadata_id_count: "#ffa600"
       events.metadata_id_count: "#1a53ff"
       events.country_count_percentage: "#00b7c7"
+      percent_of_events_target_ip_count: "#ffa600"
+      count_of_events_target_ip: "#1a53ff"
     series_labels:
       events.metadata_id_count: Count
       percent_of_events_metadata_id_count: Percent
       events.country_count_percentage: Percent
+      count_of_events_target_ip: Count
+      percent_of_events_target_ip_count: Percent
     defaults_version: 1
     listen:
       Global Time Restriction: events.event_timestamp_time
@@ -1117,28 +1126,28 @@
     width: 6
     height: 10
   - type: button
-    name: button_1508
+    name: button_2784
     rich_content_json: '{"text":"Secure Channel Insights. ➔","description":"","newTab":true,"alignment":"center","size":"small","style":"FILLED","color":"#1A73E8","href":"/dashboards/corelight-chronicle::data_insights__secure_channel_insights"}'
     row: 14
     col: 18
     width: 6
     height: 2
   - type: button
-    name: button_1509
+    name: button_2785
     rich_content_json: '{"text":"Name Resolution Insights. ➔","description":"","newTab":true,"alignment":"center","size":"small","style":"FILLED","color":"#1A73E8","href":"/dashboards/corelight-chronicle::data_insights__name_resolution_insights"}'
     row: 43
     col: 18
     width: 6
     height: 2
   - type: button
-    name: button_1510
+    name: button_2786
     rich_content_json: '{"text":"Remote Activity Insights. ➔","description":"","newTab":true,"alignment":"center","size":"small","style":"FILLED","color":"#1A73E8","href":"/dashboards/corelight-chronicle::data_insights__remote_activity_insights"}'
     row: 60
     col: 18
     width: 6
     height: 2
   - type: button
-    name: button_1511
+    name: button_2787
     rich_content_json: '{"text":"Secure Channel Insights. ➔","description":"","newTab":true,"alignment":"center","size":"small","style":"FILLED","color":"#1A73E8","href":"/dashboards/corelight-chronicle::data_insights__secure_channel_insights"}'
     row: 32
     col: 18
