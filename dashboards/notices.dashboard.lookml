@@ -60,6 +60,7 @@
       Source IP: events__principal__ip.events__principal__ip
       Notes: events__security_result.description_for_filter_notice
       Namespace: events.observer__namespace
+      Message: events.metadata__description
     row: 0
     col: 0
     width: 8
@@ -113,6 +114,7 @@
       Source IP: events__principal__ip.events__principal__ip
       Notes: events__security_result.description_for_filter_notice
       Namespace: events.observer__namespace
+      Message: events.metadata__description
     row: 0
     col: 8
     width: 8
@@ -162,6 +164,7 @@
       Source IP: events__principal__ip.events__principal__ip
       Notes: events__security_result.description_for_filter_notice
       Namespace: events.observer__namespace
+      Message: events.metadata__description
     row: 13
     col: 0
     width: 24
@@ -242,6 +245,7 @@
       Source IP: events__principal__ip.events__principal__ip
       Notes: events__security_result.description_for_filter_notice
       Namespace: events.observer__namespace
+      Message: events.metadata__description
     row: 6
     col: 0
     width: 24
@@ -297,6 +301,7 @@
       Source IP: events__principal__ip.events__principal__ip
       Notes: events__security_result.description_for_filter_notice
       Namespace: events.observer__namespace
+      Message: events.metadata__description
     row: 0
     col: 16
     width: 8
@@ -344,6 +349,19 @@
     explore: events
     listens_to_filters: [Event Type]
     field: events.severity_notice_for_filter
+  - name: Message
+    title: Message
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events.metadata__description
   - name: Source IP
     title: Source IP
     type: field_filter

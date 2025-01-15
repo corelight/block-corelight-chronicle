@@ -31786,6 +31786,70 @@ view: events {
     html: <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/svgs/solid/link.svg" width="15" height="15" alt="link" /> ;;
   }
 
+  #Security Posture - Attack Count
+  dimension: attack_type {
+    type: string
+    sql: REGEXP_EXTRACT(${events__security_result.description}, r'^(?P<attack_type>[^\s]+)') ;;
+  }
+
+  #Security Posture - Avg Alerts Per Indicator
+  measure: average_alerts_per_indicator {
+    type: number
+    sql: CASE
+            WHEN ${events__about__labels__indicator.count_distinct_of_value} > 0 THEN ROUND((${metadata_id_count} / ${events__about__labels__indicator.count_distinct_of_value}), 2)
+            ELSE 0
+         END;;
+  }
+
+  #Security Posture - Avg Alerts Per Source IP
+  measure: average_alerts_per_source_ip {
+    type: number
+    sql: CASE
+            WHEN COUNT(DISTINCT ${events__principal__ip.events__principal__ip}) > 0 THEN ROUND((${metadata_id_count} / COUNT(DISTINCT ${events__principal__ip.events__principal__ip})), 2)
+            ELSE 0
+         END;;
+  }
+
+  #Security Posture - Threat Intel
+  measure: threat_intel {
+    type: number
+    sql: ${metadata_id_count};;
+    link: {
+      label: "View Intel Dashboard"
+      url: "/dashboards/corelight-chronicle::security_workflows__intel"
+    }
+  }
+
+  #Security Posture - SMB v1 Connections
+  dimension: smb_version {
+    type: string
+    sql: CASE
+          WHEN ${target__port} = 139 THEN 'SMBv1'
+          WHEN ${target__port} = 445 THEN 'SMBv2_or_SMBv3'
+          ELSE 'Unknown'
+         END;;
+  }
+
+  #Security Posture - Suricata Alerts
+  measure: suricata_alerts {
+    type: number
+    sql: ${metadata_id_count};;
+    link: {
+      label: "View Suricata Dashboard"
+      url: "/dashboards/corelight-chronicle::suricata_ids_alert_overview"
+    }
+  }
+
+  #Security Posture - Notices
+  measure: notices {
+    type: number
+    sql: ${metadata_id_count};;
+    link: {
+      label: "View Notices Dashboard"
+      url: "/dashboards/corelight-chronicle::notices?Time+Range=15+minute"
+    }
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
@@ -55182,6 +55246,10 @@ view: events__about__labels__indicator {
   dimension: value {
     type: string
     sql: ${TABLE}.value ;;
+  }
+  measure: count_distinct_of_value {
+    type: count_distinct
+    sql: ${value} ;;
   }
 }
 #intel

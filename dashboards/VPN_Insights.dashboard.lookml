@@ -13,7 +13,6 @@
     fields: [events.vpn_inferences_count, events__about__labels__inferences_vpn.value]
     filters:
       events.product_event_type: vpn
-      events__about__labels__inferences_vpn.value: "-NULL"
       events__about__labels__vpn__type__filter.value: "-NULL"
     sorts: [events.vpn_inferences_count desc]
     limit: 50
@@ -38,6 +37,7 @@
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
       Namespace: events.observer__namespace
+      Inference: events__about__labels__inferences_vpn.value
     row: 0
     col: 0
     width: 12
@@ -52,7 +52,6 @@
     fill_fields: [events.event_timestamp_date]
     filters:
       events.product_event_type: vpn
-      events__about__labels__inferences_vpn.value: "-NULL"
       events__about__labels__vpn__type__filter.value: "-NULL"
     sorts: [events__about__labels__inferences_vpn.value, events.event_timestamp_date
         desc]
@@ -107,6 +106,7 @@
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
       Namespace: events.observer__namespace
+      Inference: events__about__labels__inferences_vpn.value
     row: 0
     col: 12
     width: 12
@@ -158,6 +158,7 @@
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
       Namespace: events.observer__namespace
+      Inference: events__about__labels__inferences_vpn.value
     row: 6
     col: 0
     width: 12
@@ -172,7 +173,6 @@
       events.external_link]
     filters:
       events.product_event_type: vpn
-      events__about__labels__inferences_vpn.value: "-NULL"
       events__about__labels__vpn__type__filter.value: "-NULL"
     sorts: [events.event_timestamp_time desc]
     limit: 5000
@@ -213,6 +213,7 @@
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
       Namespace: events.observer__namespace
+      Inference: events__about__labels__inferences_vpn.value
     row: 12
     col: 0
     width: 24
@@ -267,6 +268,7 @@
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
       Namespace: events.observer__namespace
+      Inference: events__about__labels__inferences_vpn.value
     row: 22
     col: 0
     width: 24
@@ -282,9 +284,20 @@
     filters:
       events.product_event_type: vpn
       events__about__labels__vpn__type__filter.value: "-NULL"
+      events.target__application: spicy%
     sorts: [events.orig_bytes_sum desc]
     limit: 5000
     column_limit: 50
+    dynamic_fields:
+    - category: table_calculation
+      expression: "(((${events.orig_bytes_sum}+${events.resp_bytes_sum}) / 1024) /\
+        \ 1024) / 1024"
+      label: Gigabytes
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: gigabytes
+      _type_hint: number
     show_view_names: false
     show_row_numbers: true
     transpose: false
@@ -320,12 +333,17 @@
         is_active: false
     defaults_version: 1
     hidden_pivots: {}
+    column_order: ["$$$_row_numbers_$$$", events__principal__ip.events__principal__ip,
+      events__target__ip.events__target__ip, events.target__port, events.protocol_string,
+      events__target__ip_geo_artifact.location__country_or_region, events.target__application,
+      events.resp_bytes_sum, events.orig_bytes_sum, gigabytes, events.gigabyte_count]
     listen:
       Time Range: events.event_timestamp_time
       Corelight Sensor: events.observer__hostname
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
       Namespace: events.observer__namespace
+      Inference: events__about__labels__inferences_vpn.value
     row: 17
     col: 0
     width: 24
@@ -400,6 +418,7 @@
       Event Type: events.metadata__product_event_type
       VPN Type: events__about__labels__vpn__type.value
       Namespace: events.observer__namespace
+      Inference: events__about__labels__inferences_vpn.value
     row: 6
     col: 12
     width: 12
@@ -460,6 +479,19 @@
     explore: events
     listens_to_filters: [Event Type]
     field: events__about__labels__vpn__type.value
+  - name: Inference
+    title: Inference
+    type: field_filter
+    default_value: ''
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+    model: corelight-chronicle
+    explore: events
+    listens_to_filters: []
+    field: events__about__labels__inferences_vpn.value
   - name: Namespace
     title: Namespace
     type: field_filter

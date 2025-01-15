@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: EoX5ZWvDqNl0DzyAHfj5vR
+  preferred_slug: mDJuiLTDyb3VKxBYimvPJN
   elements:
   - title: Self Signed Certs
     name: Self Signed Certs
@@ -48,7 +48,7 @@
       Sensor: events.observer__hostname
       Global Time Restriction: events.event_timestamp_time
       Namespace: events.observer__namespace
-    row: 2
+    row: 16
     col: 0
     width: 8
     height: 3
@@ -94,7 +94,7 @@
       Sensor: events.observer__hostname
       Global Time Restriction: events.event_timestamp_time
       Namespace: events.observer__namespace
-    row: 2
+    row: 16
     col: 8
     width: 8
     height: 3
@@ -141,7 +141,7 @@
       Sensor: events.observer__hostname
       Global Time Restriction: events.event_timestamp_time
       Namespace: events.observer__namespace
-    row: 2
+    row: 16
     col: 16
     width: 8
     height: 3
@@ -211,7 +211,7 @@
       Sensor: events.observer__hostname
       Global Time Restriction: events.event_timestamp_time
       Namespace: events.observer__namespace
-    row: 11
+    row: 25
     col: 0
     width: 24
     height: 7
@@ -270,7 +270,7 @@
       Sensor: events.observer__hostname
       Global Time Restriction: events.event_timestamp_time
       Namespace: events.observer__namespace
-    row: 5
+    row: 19
     col: 0
     width: 12
     height: 6
@@ -335,7 +335,7 @@
       Sensor: events.observer__hostname
       Global Time Restriction: events.event_timestamp_time
       Namespace: events.observer__namespace
-    row: 5
+    row: 19
     col: 12
     width: 12
     height: 6
@@ -377,9 +377,9 @@
       Sensor: events.observer__hostname
       Global Time Restriction: events.event_timestamp_time
       Namespace: events.observer__namespace
-    row: 20
+    row: 34
     col: 0
-    width: 8
+    width: 6
     height: 3
   - title: Telnet Sessions
     name: Telnet Sessions
@@ -419,9 +419,9 @@
       Sensor: events.observer__hostname
       Global Time Restriction: events.event_timestamp_time
       Namespace: events.observer__namespace
-    row: 20
-    col: 8
-    width: 8
+    row: 34
+    col: 12
+    width: 6
     height: 3
   - name: ''
     type: text
@@ -431,7 +431,7 @@
       Traffic Hygiene</h4>
 
       '
-    row: 0
+    row: 14
     col: 0
     width: 18
     height: 2
@@ -443,7 +443,7 @@
       Traffic Hygiene - Indicators</h4>
 
       '
-    row: 18
+    row: 32
     col: 0
     width: 18
     height: 2
@@ -483,9 +483,9 @@
       Sensor: events.observer__hostname
       Global Time Restriction: events.event_timestamp_time
       Namespace: events.observer__namespace
-    row: 20
-    col: 16
-    width: 8
+    row: 34
+    col: 18
+    width: 6
     height: 3
   - title: Top Unencrypted Protocols Used
     name: Top Unencrypted Protocols Used
@@ -497,7 +497,7 @@
     fill_fields: [events.event_timestamp_hour]
     filters:
       events.metadata__product_event_type: conn
-      events__about__labels__service.value: -ssl,-dns,-tls,-"ssl,http",-"http,ssl"
+      events__about__labels__service.value: -ssl,-tls,-"ssl,http",-"http,ssl",-ssh,-https,-dtls,-"ssl,xmpp",-"spicy_ipsec_ike_udp",-"spicy_ipsec_udp",-"spicy_ipsec_ike_udp,spicy_ipsec_udp",-"spicy_stun_tcp",-"krb,krb_tcp"
     sorts: [events__about__labels__service.value, events.event_timestamp_hour desc]
     limit: 5000
     column_limit: 50
@@ -585,7 +585,7 @@
       Sensor: events.observer__hostname
       Global Time Restriction: events.event_timestamp_time
       Namespace: events.observer__namespace
-    row: 23
+    row: 37
     col: 0
     width: 24
     height: 6
@@ -629,7 +629,7 @@
     listen:
       Sensor: events.observer__hostname
       Namespace: events.observer__namespace
-    row: 31
+    row: 45
     col: 0
     width: 6
     height: 5
@@ -682,7 +682,7 @@
       Global Time Restriction: events.event_timestamp_time
       Sensor: events.observer__hostname
       Namespace: events.observer__namespace
-    row: 31
+    row: 45
     col: 18
     width: 6
     height: 5
@@ -714,7 +714,7 @@
     listen:
       Sensor: events.observer__hostname
       Namespace: events.observer__namespace
-    row: 31
+    row: 45
     col: 6
     width: 6
     height: 5
@@ -779,7 +779,7 @@
       Global Time Restriction: events.event_timestamp_time
       Sensor: events.observer__hostname
       Namespace: events.observer__namespace
-    row: 58
+    row: 72
     col: 0
     width: 24
     height: 6
@@ -791,7 +791,7 @@
       Hygiene</h4>
 
       '
-    row: 29
+    row: 43
     col: 0
     width: 18
     height: 2
@@ -803,7 +803,7 @@
       Management Hygiene</h4>
 
       '
-    row: 46
+    row: 60
     col: 0
     width: 18
     height: 2
@@ -874,7 +874,7 @@
       Global Time Restriction: events.event_timestamp_time
       Sensor: events.observer__hostname
       Namespace: events.observer__namespace
-    row: 64
+    row: 78
     col: 0
     width: 24
     height: 7
@@ -906,7 +906,7 @@
     listen:
       Sensor: events.observer__hostname
       Namespace: events.observer__namespace
-    row: 31
+    row: 45
     col: 12
     width: 6
     height: 5
@@ -961,7 +961,7 @@
       Global Time Restriction: events.event_timestamp_time
       Sensor: events.observer__hostname
       Namespace: events.observer__namespace
-    row: 36
+    row: 50
     col: 0
     width: 18
     height: 10
@@ -970,26 +970,31 @@
     model: corelight-chronicle
     explore: events
     type: looker_bar
-    fields: [events.metadata_id_count, events__target__ip_geo_artifact.location__country_or_region]
+    fields: [events__target__ip_geo_artifact.location__country_or_region, count_of_events_target_ip]
     filters:
       events.metadata__product_event_type: vpn
       events__target__ip_geo_artifact.location__country_or_region: "-NULL"
-    sorts: [events.metadata_id_count desc]
+    sorts: [count_of_events_target_ip desc 0]
     limit: 10
     column_limit: 50
     dynamic_fields:
-    - _kind_hint: measure
-      _type_hint: number
-      args:
-      - events.metadata_id_count
-      based_on: events.metadata_id_count
-      calculation_type: percent_of_column_sum
-      category: table_calculation
-      label: Percent of Events Metadata ID Count
-      source_field: events.metadata_id_count
-      table_calculation: percent_of_events_metadata_id_count
+    - category: table_calculation
+      label: Percent of Events Target IP Count
       value_format:
       value_format_name: percent_0
+      calculation_type: percent_of_column_sum
+      table_calculation: percent_of_events_target_ip_count
+      args:
+      - count_of_events_target_ip
+      _kind_hint: measure
+      _type_hint: number
+    - _kind_hint: measure
+      _type_hint: number
+      based_on: events__target__ip.events__target__ip
+      expression: ''
+      label: Count of Events Target IP
+      measure: count_of_events_target_ip
+      type: count_distinct
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1017,29 +1022,33 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    y_axes: [{label: Count, orientation: bottom, series: [{axisId: events.metadata_id_count,
-            id: events.metadata_id_count, name: Count}, {axisId: percent_of_events_metadata_id_count,
-            id: percent_of_events_metadata_id_count, name: Percent}], showLabels: true,
-        showValues: true, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+    y_axes: [{label: Count, orientation: bottom, series: [{axisId: count_of_events_target_ip,
+            id: count_of_events_target_ip, name: Count}, {axisId: percent_of_events_target_ip_count,
+            id: percent_of_events_target_ip_count, name: Percent}], showLabels: true,
+        showValues: false, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
     x_axis_label: Country
     x_axis_zoom: true
     y_axis_zoom: true
-    hide_legend: false
+    hide_legend: true
     series_colors:
       percent_of_events_metadata_id_count: "#ffa600"
       events.metadata_id_count: "#1a53ff"
       events.country_count_percentage: "#00b7c7"
+      percent_of_events_target_ip_count: "#ffa600"
+      count_of_events_target_ip: "#1a53ff"
     series_labels:
       events.metadata_id_count: Count
       percent_of_events_metadata_id_count: Percent
       events.country_count_percentage: Percent
+      count_of_events_target_ip: Count
+      percent_of_events_target_ip_count: Percent
     defaults_version: 1
     listen:
       Global Time Restriction: events.event_timestamp_time
       Sensor: events.observer__hostname
       Namespace: events.observer__namespace
-    row: 48
+    row: 62
     col: 0
     width: 24
     height: 10
@@ -1112,37 +1121,1103 @@
       Global Time Restriction: events.event_timestamp_time
       Sensor: events.observer__hostname
       Namespace: events.observer__namespace
-    row: 36
+    row: 50
     col: 18
     width: 6
     height: 10
   - type: button
-    name: button_1508
+    name: button_2784
     rich_content_json: '{"text":"Secure Channel Insights. ➔","description":"","newTab":true,"alignment":"center","size":"small","style":"FILLED","color":"#1A73E8","href":"/dashboards/corelight-chronicle::data_insights__secure_channel_insights"}'
-    row: 0
+    row: 14
     col: 18
     width: 6
     height: 2
   - type: button
-    name: button_1509
+    name: button_2785
     rich_content_json: '{"text":"Name Resolution Insights. ➔","description":"","newTab":true,"alignment":"center","size":"small","style":"FILLED","color":"#1A73E8","href":"/dashboards/corelight-chronicle::data_insights__name_resolution_insights"}'
-    row: 29
+    row: 43
     col: 18
     width: 6
     height: 2
   - type: button
-    name: button_1510
+    name: button_2786
     rich_content_json: '{"text":"Remote Activity Insights. ➔","description":"","newTab":true,"alignment":"center","size":"small","style":"FILLED","color":"#1A73E8","href":"/dashboards/corelight-chronicle::data_insights__remote_activity_insights"}'
-    row: 46
+    row: 60
     col: 18
     width: 6
     height: 2
   - type: button
-    name: button_1511
+    name: button_2787
     rich_content_json: '{"text":"Secure Channel Insights. ➔","description":"","newTab":true,"alignment":"center","size":"small","style":"FILLED","color":"#1A73E8","href":"/dashboards/corelight-chronicle::data_insights__secure_channel_insights"}'
-    row: 18
+    row: 32
     col: 18
     width: 6
+    height: 2
+  - title: Suricata Alerts Over Time
+    name: Suricata Alerts Over Time
+    model: corelight-chronicle
+    explore: events
+    type: looker_area
+    fields: [events.metadata_id_count, events.event_timestamp_hour]
+    fill_fields: [events.event_timestamp_hour]
+    filters:
+      events.metadata__product_event_type: '"suricata_corelight"'
+    sorts: [events.event_timestamp_hour desc]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: table_calculation
+      expression: coalesce(${events.metadata_id_count}, 0)
+      label: Suricata Alerts
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: suricata_alerts
+      _type_hint: number
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    y_axes: [{label: Suricata Alerts, orientation: left, series: [{axisId: suricata_alerts,
+            id: suricata_alerts, name: Suricata Alerts}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    x_axis_label: Time
+    x_axis_zoom: true
+    y_axis_zoom: true
+    series_colors:
+      events.metadata_id_count: "#7CB342"
+      notealerts: "#1A73E8"
+    series_labels:
+      events.metadata_id_count: notealerts
+      notealerts: Detections
+      detections: Detections
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    hidden_fields: [events.metadata_id_count]
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 2
+    col: 13
+    width: 11
+    height: 4
+  - title: Notices Over Time
+    name: Notices Over Time
+    model: corelight-chronicle
+    explore: events
+    type: looker_area
+    fields: [events.event_timestamp_hour, events.metadata_id_count]
+    fill_fields: [events.event_timestamp_hour]
+    filters:
+      events.metadata__product_event_type: notice
+      events__security_result.description: "-Intel%"
+      events__principal__ip.events__principal__ip: "-NULL"
+    sorts: [events.event_timestamp_hour desc]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - _kind_hint: measure
+      _type_hint: number
+      based_on: events.metadata__id
+      expression: ''
+      label: Count of Metadata ID
+      measure: count_of_metadata_id
+      type: count_distinct
+    - category: table_calculation
+      expression: coalesce(${events.metadata_id_count}, 0)
+      label: Notices
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: notices
+      _type_hint: number
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    y_axes: [{label: Notices, orientation: left, series: [{axisId: notices, id: notices,
+            name: Notices}], showLabels: true, showValues: true, unpinAxis: false,
+        tickDensity: default, tickDensityCustom: 5, type: linear}]
+    x_axis_label: Time
+    x_axis_zoom: true
+    y_axis_zoom: true
+    series_colors:
+      uniquenote: "#7CB342"
+    hidden_fields: [events.metadata_id_count]
+    hidden_pivots: {}
+    defaults_version: 1
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 6
+    col: 13
+    width: 11
+    height: 4
+  - title: Intel Alerts Over Time
+    name: Intel Alerts Over Time
+    model: corelight-chronicle
+    explore: events
+    type: looker_area
+    fields: [events.metadata_id_count, events.event_timestamp_hour]
+    fill_fields: [events.event_timestamp_hour]
+    filters:
+      events.metadata__product_event_type: intel
+    sorts: [events.event_timestamp_hour desc]
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - category: table_calculation
+      expression: coalesce(${events.metadata_id_count}, 0)
+      label: Intel Alerts
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: intel_alerts
+      _type_hint: number
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    y_axes: [{label: Intel Alerts, orientation: left, series: [{axisId: intel_alerts,
+            id: intel_alerts, name: Intel Alerts}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    x_axis_label: Time
+    x_axis_zoom: true
+    y_axis_zoom: true
+    series_colors:
+      uniquenote: "#7CB342"
+    hidden_fields: [events.metadata_id_count]
+    hidden_pivots: {}
+    defaults_version: 1
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 10
+    col: 13
+    width: 11
+    height: 4
+  - title: Unique Dest IPs
+    name: Unique Dest IPs
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [count_of_events_target_ip]
+    filters:
+      events.metadata__product_event_type: '"suricata_corelight"'
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - _kind_hint: measure
+      _type_hint: number
+      based_on: events__target__ip.events__target__ip
+      expression: ''
+      label: Count of Events Target IP
+      measure: count_of_events_target_ip
+      type: count_distinct
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: Unique Note, orientation: left, series: [{axisId: uniquenote,
+            id: uniquenote, name: uniquenote}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: Time
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    series_colors:
+      uniquenote: "#7CB342"
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: []
+    hidden_pivots: {}
+    defaults_version: 1
+    note_state: collapsed
+    note_display: above
+    note_text: Unique Dest. IPs
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 2
+    col: 9
+    width: 4
+    height: 2
+  - title: Unique Source IPs
+    name: Unique Source IPs
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [count_of_events_principal_ip]
+    filters:
+      events.metadata__product_event_type: '"suricata_corelight"'
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - _kind_hint: measure
+      _type_hint: number
+      based_on: events__principal__ip.events__principal__ip
+      expression: ''
+      label: Count of Events Principal IP
+      measure: count_of_events_principal_ip
+      type: count_distinct
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: Unique Note, orientation: left, series: [{axisId: uniquenote,
+            id: uniquenote, name: uniquenote}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: Time
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    series_colors:
+      uniquenote: "#7CB342"
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: []
+    hidden_pivots: {}
+    defaults_version: 1
+    note_state: collapsed
+    note_display: above
+    note_text: Unique Source IPs
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 2
+    col: 5
+    width: 4
+    height: 2
+  - title: Attack Count
+    name: Attack Count
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [events__about__labels__uid__only.distinct_uid_only_count]
+    filters:
+      events.metadata__product_event_type: notice
+      events__security_result.description: "-Intel%"
+      events__principal__ip.events__principal__ip: "-NULL"
+      events.attack_type: ATTACK::%
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: Unique Note, orientation: left, series: [{axisId: uniquenote,
+            id: uniquenote, name: uniquenote}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: Time
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    series_colors:
+      uniquenote: "#7CB342"
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: []
+    hidden_pivots: {}
+    defaults_version: 1
+    note_state: collapsed
+    note_display: above
+    note_text: Attack Count
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 6
+    col: 5
+    width: 4
+    height: 2
+  - title: SSL Certs Issues
+    name: SSL Certs Issues
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [events.metadata_id_count]
+    filters:
+      events.metadata__product_event_type: notice
+      events__security_result.description: '"SSL::Certificate_Expired","SSL::Invalid_Server_Cert","SSL::Old_Version"'
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: Unique Note, orientation: left, series: [{axisId: uniquenote,
+            id: uniquenote, name: uniquenote}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: Time
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    series_colors:
+      uniquenote: "#7CB342"
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: []
+    hidden_pivots: {}
+    defaults_version: 1
+    note_state: collapsed
+    note_display: above
+    note_text: SSL Certs. Issues
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 8
+    col: 5
+    width: 4
+    height: 2
+  - title: Meterpreter Count
+    name: Meterpreter Count
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [events.metadata_id_count]
+    filters:
+      events.metadata__product_event_type: notice
+      events__security_result.description: '"MeterpreterDetection::Meterpreter_Detected"'
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: Unique Note, orientation: left, series: [{axisId: uniquenote,
+            id: uniquenote, name: uniquenote}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: Time
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    series_colors:
+      uniquenote: "#7CB342"
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: []
+    hidden_pivots: {}
+    defaults_version: 1
+    note_state: collapsed
+    note_display: above
+    note_text: Meterpreter Count
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 6
+    col: 9
+    width: 4
+    height: 2
+  - title: Unique Note Count
+    name: Unique Note Count
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [count_of_description]
+    filters:
+      events.metadata__product_event_type: notice
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - _kind_hint: measure
+      _type_hint: number
+      based_on: events__security_result.description
+      expression: ''
+      label: Count of Description
+      measure: count_of_description
+      type: count_distinct
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: Unique Note, orientation: left, series: [{axisId: uniquenote,
+            id: uniquenote, name: uniquenote}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: Time
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    series_colors:
+      uniquenote: "#7CB342"
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: []
+    hidden_pivots: {}
+    defaults_version: 1
+    note_state: collapsed
+    note_display: above
+    note_text: Unique Note Count
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 8
+    col: 9
+    width: 4
+    height: 2
+  - title: Unique Indicators
+    name: Unique Indicators
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [count_of_value]
+    filters:
+      events.metadata__product_event_type: intel
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - _kind_hint: measure
+      _type_hint: number
+      based_on: events__about__labels__indicator.value
+      expression: ''
+      label: Count of Value
+      measure: count_of_value
+      type: count_distinct
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: Unique Note, orientation: left, series: [{axisId: uniquenote,
+            id: uniquenote, name: uniquenote}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: Time
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    series_colors:
+      uniquenote: "#7CB342"
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: []
+    hidden_pivots: {}
+    defaults_version: 1
+    note_state: collapsed
+    note_display: above
+    note_text: Unique Indicators
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 10
+    col: 5
+    width: 8
+    height: 2
+  - title: Avg Alerts Per Source IP
+    name: Avg Alerts Per Source IP
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [events.average_alerts_per_source_ip]
+    filters:
+      events.metadata__product_event_type: intel
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: Unique Note, orientation: left, series: [{axisId: uniquenote,
+            id: uniquenote, name: uniquenote}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: Time
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    series_colors:
+      uniquenote: "#7CB342"
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: []
+    hidden_pivots: {}
+    defaults_version: 1
+    note_state: collapsed
+    note_display: above
+    note_text: Avg Alerts Per Source IP
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 12
+    col: 9
+    width: 4
+    height: 2
+  - title: Avg Alerts Per Indicator
+    name: Avg Alerts Per Indicator
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [events.average_alerts_per_indicator]
+    filters:
+      events.metadata__product_event_type: intel
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: Unique Note, orientation: left, series: [{axisId: uniquenote,
+            id: uniquenote, name: uniquenote}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: Time
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    series_colors:
+      uniquenote: "#7CB342"
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: []
+    hidden_pivots: {}
+    defaults_version: 1
+    note_state: collapsed
+    note_display: above
+    note_text: Avg Alerts Per Indicator
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 12
+    col: 5
+    width: 4
+    height: 2
+  - name: " (6)"
+    type: text
+    title_text: ''
+    subtitle_text: ''
+    body_text: '<h4 style="font-size:22px; margin-top:30px; font-style:normal; text-align:left;">Alert
+      Insights</h4>
+
+      '
+    row: 0
+    col: 0
+    width: 24
+    height: 2
+  - title: Suricata Alerts
+    name: Suricata Alerts
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [events.suricata_alerts]
+    filters:
+      events.metadata__product_event_type: '"suricata_corelight"'
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    hidden_pivots: {}
+    defaults_version: 1
+    note_state: collapsed
+    note_display: hover
+    note_text: All Suricata Alerts
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 2
+    col: 0
+    width: 5
+    height: 4
+  - title: Notices
+    name: Notices
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [events.notices]
+    filters:
+      events.metadata__product_event_type: notice
+      events__security_result.description: "-Intel%"
+      events__principal__ip.events__principal__ip: "-NULL"
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    hidden_pivots: {}
+    defaults_version: 1
+    note_state: collapsed
+    note_display: hover
+    note_text: Messages Excluding Intel
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 6
+    col: 0
+    width: 5
+    height: 4
+  - title: Threat Intel
+    name: Threat Intel
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [events.threat_intel]
+    filters:
+      events.metadata__product_event_type: intel
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    hidden_pivots: {}
+    defaults_version: 1
+    note_state: collapsed
+    note_display: hover
+    note_text: Intel Indicators
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 10
+    col: 0
+    width: 5
+    height: 4
+  - title: SMB v1 Connections
+    name: SMB v1 Connections
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [events.formatted_metadata_id_count]
+    filters:
+      events.metadata__product_event_type: '"smb_mapping","smb_files"'
+      events.smb_version: SMBv1
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_view_names: false
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    defaults_version: 1
+    hidden_pivots: {}
+    note_state: collapsed
+    note_display: above
+    note_text: SMB v1 Connections
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 34
+    col: 6
+    width: 6
+    height: 3
+  - title: Unique Signatures
+    name: Unique Signatures
+    model: corelight-chronicle
+    explore: events
+    type: single_value
+    fields: [count_of_rule_id]
+    filters:
+      events.metadata__product_event_type: '"suricata_corelight"'
+    limit: 500
+    column_limit: 50
+    dynamic_fields:
+    - _kind_hint: measure
+      _type_hint: number
+      based_on: events__security_result.rule_id
+      expression: ''
+      label: Count of Rule ID
+      measure: count_of_rule_id
+      type: count_distinct
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 1
+    note_state: collapsed
+    note_display: above
+    note_text: Unique Signatures
+    listen:
+      Global Time Restriction: events.event_timestamp_time
+      Sensor: events.observer__hostname
+      Namespace: events.observer__namespace
+    row: 4
+    col: 5
+    width: 8
     height: 2
   filters:
   - name: Global Time Restriction
